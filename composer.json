@@ -1,0 +1,47 @@
+{
+  "name": "mod-lab/craft-heading-anchors",
+  "description": "Automatically adds anchor ids to headings in rendered HTML and lists them for in-page navigation in Craft CMS",
+  "type": "craft-plugin",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/Minds-On-Design-Lab/heading-anchors/issues",
+    "source": "https://github.com/Minds-On-Design-Lab/heading-anchors"
+  },
+  "require": {
+    "php": ">=8.2",
+    "craftcms/cms": "^5.0.0"
+  },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main",
+    "phpstan/phpstan": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "modlab\\craftheadinganchors\\": "src/"
+    }
+  },
+  "extra": {
+    "handle": "heading-anchors",
+    "name": "Heading Anchors",
+    "developer": "mod-lab",
+    "documentationUrl": "https://github.com/Minds-On-Design-Lab/heading-anchors",
+    "changelogUrl": "https://raw.githubusercontent.com/Minds-On-Design-Lab/heading-anchors/main/CHANGELOG.md",
+    "class": "modlab\\craftheadinganchors\\HeadingAnchors"
+  },
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G"
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  }
+}
