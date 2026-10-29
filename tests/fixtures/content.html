@@ -1,0 +1,31 @@
+<main id="maincontent">
+	<h2>Overview</h2>
+	<p>Intro</p>
+	<h2>Overview</h2>
+	<h2 id="custom-id">Kept Id</h2>
+	<H2 class="text-4xl font-bold">Upper Case Tag</H2>
+	<h2 class="a" data-x="1 > 0">Attribute With Greater Than</h2>
+	<h2>Q &amp; A</h2>
+	<h2>Main&nbsp;Content</h2>
+	<h2>Café résumé</h2>
+	<h2><strong>Nested</strong> markup</h2>
+	<h2>   </h2>
+	<h2>&nbsp;</h2>
+	<h3>Not a configured tag</h3>
+	<div x-data="{ open: false }" @click="open = !open" :class="open ? 'a' : 'b'" x-on:keydown.escape="open = false">
+		<h2>Inside Alpine</h2>
+	</div>
+	<script>
+		document.body.insertAdjacentHTML('beforeend', "<h2>From Script</h2>");
+	</script>
+	<style>
+		h2::before { content: "<h2>"; }
+	</style>
+	<!-- <h2>Commented Out</h2> -->
+	<div data-heading-anchors-ignore>
+		<h2>Ignored Embed Heading</h2>
+		<div><h2>Nested Ignored</h2></div>
+	</div>
+	<h2>After Ignore</h2>
+	<svg viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" /></svg>
+</main>

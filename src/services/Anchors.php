@@ -6,6 +6,7 @@ use craft\errors\InvalidHtmlTagException;
 use craft\helpers\Html;
 use craft\helpers\StringHelper;
 use modlab\craftheadinganchors\HeadingAnchors;
+use modlab\craftheadinganchors\models\Settings;
 use yii\base\Component;
 use yii\base\InvalidArgumentException;
 
@@ -27,6 +28,12 @@ class Anchors extends Component
     public const MARKER_ATTRIBUTE = 'data-heading-anchor';
 
     private const RAW_TEXT_ELEMENTS = ['script', 'style', 'textarea', 'title'];
+
+    /**
+     * @var Settings|null Settings to use. Defaults to the plugin's settings; set
+     * directly to use the service without a running Craft app (e.g. in tests).
+     */
+    public ?Settings $settings = null;
 
     /**
      * Adds a unique `id` and the marker attribute to each configured heading
@@ -87,7 +94,7 @@ class Anchors extends Component
      */
     private function findHeadings(string $html): array
     {
-        $settings = HeadingAnchors::getInstance()->getSettings();
+        $settings = $this->settings ?? HeadingAnchors::getInstance()->getSettings();
         $tags = $settings->getTags();
         $ignoreAttribute = strtolower($settings->ignoreAttribute);
         $headings = [];

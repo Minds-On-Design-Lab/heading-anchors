@@ -93,3 +93,16 @@ The HTML is scanned, not rebuilt through a DOM. Only the heading's opening tag i
 Comments and the contents of `<script>`, `<style>`, `<textarea>` and `<title>` are never treated as markup. A pasted embed whose script contains `"<h2>…</h2>"` is left untouched.
 
 Headings that JavaScript adds after the page loads, or that live inside an `<iframe>`, aren't part of the rendered HTML, so they aren't anchored or listed.
+
+An excluded element is skipped up to its own closing tag, even if markup inside it is sloppy (e.g. an unclosed `<p>`). If the excluded element itself is never closed, its end can't be found, so its headings are anchored as normal.
+
+## Development
+
+```bash
+composer install
+composer test       # PHPUnit; runs without a Craft install
+composer phpstan
+composer check-cs
+```
+
+The tests exercise the `Anchors` service directly against `tests/fixtures/content.html`. To try the Twig filter and function in a real site, install the plugin from a local Composer path repository.
